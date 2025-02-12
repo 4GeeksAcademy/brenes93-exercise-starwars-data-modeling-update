@@ -7,12 +7,6 @@ from sqlalchemy import ForeignKey, String, create_engine
 
 Base = declarative_base()
 
-class Person(Base):
-    __tablename__ = 'person'
-    # Here we define columns for the table person
-    # Notice that each column is also a normal Python instance attribute.
-    id: Mapped[int] = mapped_column(primary_key=True)
-    name: Mapped[str] = mapped_column(nullable=False)
 
 class Usuarios(Base):
     __tablename__ = 'usuario'
@@ -64,15 +58,6 @@ class Vehiculos(Base):
     vehiculo_favorito: Mapped[List["Vehiculos_favoritos"]] = relationship(back_populates="vehiculo")        
       
 
-
-class Address(Base):
-    __tablename__ = 'address'
-    # Here we define columns for the table address.
-    # Notice that each column is also a normal Python instance attribute.
-    id: Mapped[int] = mapped_column(primary_key=True)
-    street_name: Mapped[str]
-    street_number: Mapped[str]
-    post_code: Mapped[str] = mapped_column(nullable=False)
 
 class Personajes_favoritos(Base):
     __tablename__ = 'personaje_favorito'
